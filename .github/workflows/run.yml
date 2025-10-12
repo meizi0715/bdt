@@ -15,7 +15,7 @@ jobs:
           echo "現在の日本時間: ${HOUR}時"
 
           # 判断是否在6:00~次日3:00之间
-          if [ $HOUR -lt 6 ] && [ $HOUR -ge 3 ]; then
+          if [ "$HOUR" -ge 3 ] && [ "$HOUR" -lt 6 ]; then
             echo "現在は実行時間外（3～6時）。ジョブを終了します。"
             exit 0
           fi
