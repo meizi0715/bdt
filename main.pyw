@@ -143,7 +143,7 @@ for i, (code2, code3, name) in enumerate(SportsCenter):
 rounded = start.replace(minute=(start.minute // 10) * 10, second=0, microsecond=0)
 previous = rounded - timedelta(minutes=10)
 time_now = rounded.strftime("%Y%m%d%H%M")   # 例202509302110
-time_old = previous.strftime("%Y%m%d%H%M")  # 例202509302100
+# time_old = previous.strftime("%Y%m%d%H%M")  # 例202509302100
 
 folder = "output"
 os.makedirs(folder, exist_ok=True)
@@ -155,11 +155,11 @@ with open(file_new, "w", encoding="utf-8") as f:
     for line in body_lines:
         f.write(line + "\n")
 
-if start.hour == 6 and start.minute <= 10: # 朝一からの場合、旧ファイル取得
-    time_old = time_old[:-4] + "0300"
-    file = f"{time_old}.txt"
-else:
-    file = f"{time_now}.txt"
+# if start.hour == 6 and start.minute <= 10: # 朝一からの場合、旧ファイル取得
+#     time_old = time_old[:-4] + "0300"
+#     file = f"{time_old}.txt"
+# else:
+#     file = f"{time_now}.txt"
 
 # 获取 output 文件夹中所有 txt 文件
 files = sorted(os.listdir("output"))
@@ -199,3 +199,4 @@ if minutes == 0:
     print(f"{end.strftime('%H:%M:%S')} - 処理終了　※処理時間：{seconds}秒")
 else:
     print(f"{end.strftime('%H:%M:%S')} - 処理終了　※処理時間：{minutes}分{seconds}秒")
+
