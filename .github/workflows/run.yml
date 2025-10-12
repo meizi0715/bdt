@@ -1,4 +1,4 @@
-name: Run Python Script For Badminton
+name: Run Python Script For bdt
 
 on:
   workflow_dispatch:
